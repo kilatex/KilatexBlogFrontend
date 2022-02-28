@@ -1,0 +1,52 @@
+.ftco-section {
+    padding: 3em 0; }
+
+.heading-section {
+    font-size: 28px;
+    color: #000; }
+
+.login-wrap {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24); 
+}
+.input-box{
+    display: flex;
+    justify-content: center;
+}
+.input-login{
+    margin: 10px 0px;
+    height: 35px;
+    width: 80%;
+
+}
+.login-wrap h3 {
+    font-weight: 300;
+}
+.btn-blog{
+    height: 35px;
+    width: 80%;
+}
+.login-wrap .icon {
+    width: 80px;
+    height: 80px;
+    background: #233240;
+    border-radius: 50%;
+    font-size: 30px;
+    margin: 0 auto;
+    margin-bottom: 10px; }
+    .login-wrap .icon span {
+    color: #fff; 
+}
+
+.w-50 {
+    width: 50% !important; 
+}
+
+.form-register-inputs{
+    display: flex;
+    justify-content: space-between;
+}
