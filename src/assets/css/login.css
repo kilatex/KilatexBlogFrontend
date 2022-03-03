@@ -1,5 +1,6 @@
 .ftco-section {
-    padding: 3em 0; }
+    padding: 3em 0; 
+}
 
 .heading-section {
     font-size: 28px;
@@ -13,13 +14,15 @@
     -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
     box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24); 
 }
+
 .input-box{
     display: flex;
     justify-content: center;
 }
+
 .input-login{
     margin: 10px 0px;
-    height: 35px;
+    height: 45px;
     width: 80%;
 
 }
@@ -50,3 +53,7 @@
     display: flex;
     justify-content: space-between;
 }
+.inputs{
+    display: flex;
+}
+

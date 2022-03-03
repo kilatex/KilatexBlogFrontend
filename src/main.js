@@ -6,4 +6,6 @@ import App from './App.vue'
 createApp(App).use(router).mount('#app')
 
 import "bootstrap/dist/js/bootstrap.js"
+import "bootstrap/dist/js/bootstrap.bundle.js"
+
 import router from './router'
