@@ -5,15 +5,17 @@
         <i class="fas fa-bars text-white" id="header-toggle"></i>
       </div>
       <div class="header_img">
-        <img src="https://i.imgur.com/hczKIze.jpg" alt="" />
+          <a href="#">
+            <img src="https://i.imgur.com/hczKIze.jpg" alt="" />
+          </a>
       </div>
     </header>
     <div class="l-navbar bg-primary" id="nav-bar">
       <nav class="nav">
         <div>
           <a href="#" class="nav_logo">
-            <i class="bx bx-layer nav_logo-icon"></i>
-            <span class="nav_logo-name">BBBootstrap</span>
+              <!--  <i class="bx bx-layer nav_logo-icon"></i> -->
+            <span class="nav_logo-name">KILATEX</span>
           </a>
           <div class="nav_list">
             <a href="#" class="nav_link active">
@@ -45,7 +47,7 @@
           </div>
         </div>
         <a href="#" class="nav_link">
-          <i class="bx bx-log-out nav_icon"></i>
+          <i class="fas fa-sign-out-alt nav_icon"></i>
           <span class="nav_name">SignOut</span>
         </a>
       </nav>
@@ -231,7 +233,6 @@ a {
    
     .header .header_toggle{
         position: relative;
-        left: -70px ;
     }
 
 
@@ -240,10 +241,12 @@ a {
   }
   
     .body-pd {
-    padding-left: calc(var(--nav-width) + 240px);
+    padding-left: calc(var(--nav-width) + 170px) !important;
   }
 
- 
+ .header {
+  padding: 0 20px;
+    }
 }
 </style>
 
