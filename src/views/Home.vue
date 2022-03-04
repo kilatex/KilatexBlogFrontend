@@ -1,10 +1,24 @@
 <template>
 <div class="">
   <Navbar> </Navbar>
-  <div class="home">
-    <h1>Hola</h1>
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container-box d-flex justify-content-around">
+    <div>
+      <h3>Posts</h3>
+      <div class="card" style="width: 45rem;">
+        <div class="card-header">
+          <a href="">Username</a>
+        </div>
+        <img  src="../assets/img/1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>sidebar</h3>
+    </div>
   </div>
 </div>
 
@@ -12,20 +26,18 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
 import Navbar from '../components/Navbar.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
     Navbar
   }
 }
 </script>
 
 <style>
-h1{
-  text-align: center;
+*{
+  text-align: start;
 }
 </style>
