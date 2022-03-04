@@ -1,7 +1,7 @@
 <template>
 <div class="bg-light">
   <Navbar> </Navbar>
-  <div class="container-box  d-flex justify-content-around">
+  <div class="container-box d-flex  justify-content-around">
     <div class="articles">
       <h4 class="mb-4">Post Something about tech world!</h4>
      <div class=" form-box ">      
@@ -71,7 +71,7 @@
       </div>
        <div class=" post-box" >
         <div class="card-header">
-          <a href="">Username</a>
+          <a href="#">Username</a>
         </div>
         <div class="image-box">
         <img  src="../assets/img/1.jpg" class="card-img-top" alt="...">
@@ -83,9 +83,39 @@
         </div>
       </div>
     </div>
-    <div class="sidebar">
-      <h3>sidebar</h3>
+    <div class="sidebar bg-white">
+  
+      <div class="sidebar-box">
+        <div class="profile">
+            <img src="../assets/img/profile1.png" class="avatar-sidebar" alt="Avatar Profile">
+            <a href="#" class="fw-bold">Username</a>
+        </div>
+        <h4 class="text-center text-primary fw-bold ">Kilatex Blog</h4>
+
+        <h6>Recent posts about</h6>
+        <ul>
+          <li><a href="#">PC</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">6</a></li>
+
+        </ul>
+
+        <h6>Find New Users</h6>
+         <ul>
+          <li class=" my-3"><a href="#" class="avatar-list"> <img src="../assets/img/2.jpg" class="" alt=""> Username 1 </a></li>
+           <li class=" my-3"><a href="#" class="avatar-list"> <img src="../assets/img/2.jpg" class="" alt=""> Username 1 </a></li>
+          <li class=" my-3"> <a href="#" class="avatar-list"> <img src="../assets/img/2.jpg" class="" alt=""> Username 1 </a></li>
+           <li class=" my-3"><a href="#" class="avatar-list"> <img src="../assets/img/2.jpg" class="" alt=""> Username 1 </a></li>
+ 
+
+        </ul>
+      </div>
     </div>
+
   </div>
 </div>
 
@@ -105,9 +135,13 @@ export default {
 </script>
 
 <style>
+
+
 *{
   text-align: start;
 }
+
+/* POST STYLES */
 .post-header{
   font-weight: bold;
   display: flex !important;
@@ -135,6 +169,7 @@ export default {
   border-radius: 0px;
 }
 
+/* FORM STYLES */
 .form-box{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
   padding: 20px;
@@ -142,6 +177,7 @@ export default {
   width: 100%;
   background: white;
 }
+
 .avatar-form img, .avatar-post img{
   width: 50px;
   height: 50px;
@@ -156,6 +192,54 @@ export default {
   width: 120px;
 }
 
+/* SIDEBAR STYLES */
+.sidebar{
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 76px;
+  width: 20%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+  border-radius: 5px;
+  height: 100%;
+}
+.sidebar-box{
+  padding: 20px;
+}
+.sidebar ul li{
+  list-style: none;
+  margin-left: -15px;
+}
+
+.avatar-sidebar{
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
+.profile{
+  text-align: center;
+  margin-bottom: 15px;
+}
+.profile a{
+  display: block;
+  text-align: center;
+}
+.avatar-list img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+@media screen and (max-width: 1280px){
+  .sidebar-box{
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 1030px){
+ .sidebar{
+    display: none !important;
+  }
+}
+
+
 
 @media screen and (max-width: 768px) {
   .avatar-form img{
@@ -165,9 +249,7 @@ export default {
     width: 40px;
     height: 40px;
   }
-  .sidebar{
-    display: none !important;
-  }
+ 
   .container-box{
     width: 97%;    
     padding-left: 3vh;
