@@ -177,6 +177,8 @@
         </div>
         
   </div>
+<ModalNewPost></ModalNewPost>
+
 </div>
 
 </template>
@@ -252,11 +254,13 @@
 </style>
 
 <script>
+import ModalNewPost from '../components/ModalNewPost.vue';
 import Navbar from '../components/Navbar.vue';
 export default {
     name: 'Profile',
     components: {
-        Navbar
+        Navbar,
+        ModalNewPost
     }
 }
 </script>
