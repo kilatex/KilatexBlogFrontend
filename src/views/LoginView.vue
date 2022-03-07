@@ -12,12 +12,12 @@
             <h3 class="text-center mb-4">Sign In</h3>
                     <form action="#" class="login-form">
                 <div class="form-group input-box">
-                    <input type="text" class="form-control input-login rounded-left" placeholder="Username" required>
+                    <input type="text" class="form-control input-login rounded-left" placeholder="Email" required>
                 </div>
             <div class="form-group  input-box d-flex">
                 <input type="password" class="form-control input-login rounded-left" placeholder="Password" required>
             </div>
-            <div class="form-group">
+            <div class="form-group  text-center">
                 <button type="submit" class="form-control btn btn-primary rounded btn-blog submit px-3">Login</button>
             </div>
       
