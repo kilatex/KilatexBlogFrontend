@@ -2,7 +2,7 @@
   <div id="body-pd">
     <header class="header bg-primary" id="header">
       <div class="header_toggle">
-        <i class="fas fa-bars text-white" id="header-toggle"></i>
+        <i class="fas fa-bars text-white header-toggle" @click.prevent="toggle"  id="header-toggle"></i>
       </div>
       <div class="header_img">
           <router-link :to="{ name: 'Profile'}">
@@ -34,7 +34,7 @@
               <span class="nav_name">My Posts</span>
             </a>
 
-            <a href="#" class="nav_link">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="nav_link">
               <i class="fas fa-plus-circle nav_icon"></i>
               <span class="nav_name">New Post</span>
             </a>
@@ -261,8 +261,8 @@ a {
 export default {
   name: "Navbar",
   mounted() {
-    document.addEventListener("DOMContentLoaded", function () {
-      const showNavbar = (toggleId, navId, bodyId, headerId) => {
+        // MENU TOGGLE
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
         const toggle = document.getElementById(toggleId),
           nav = document.getElementById(navId),
           bodypd = document.getElementById(bodyId),
@@ -282,9 +282,11 @@ export default {
           });
         }
       };
-
       showNavbar("header-toggle", "nav-bar", "body-pd", "header");
 
+      
+    document.addEventListener("DOMContentLoaded", function () {
+     
       /*===== LINK ACTIVE =====*/
       const linkColor = document.querySelectorAll(".nav_link");
      
@@ -300,7 +302,7 @@ export default {
 
       // Your code to run since DOM is loaded and ready
     });
-  },
+  }
 };
 </script>
 

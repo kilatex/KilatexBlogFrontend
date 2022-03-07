@@ -83,12 +83,14 @@
         </div>
       </div>
     </div>
+
+
     <div class="sidebar bg-white">
   
       <div class="sidebar-box">
         <div class="profile">
             <img src="../assets/img/profile1.png" class="avatar-sidebar" alt="Avatar Profile">
-            <a href="#" class="fw-bold">Username</a>
+            <a href="#"    class="fw-bold">Username</a>
         </div>
         <h4 class="text-center text-primary fw-bold ">Kilatex Blog</h4>
 
@@ -116,7 +118,10 @@
       </div>
     </div>
 
+
   </div>
+  <ModalNewPost></ModalNewPost>
+
 </div>
 
 </template>
@@ -124,11 +129,13 @@
 <script>
 // @ is an alias to /src
 import Navbar from '../components/Navbar.vue';
+import ModalNewPost from '../components/ModalNewPost.vue';
 
 export default {
   name: 'Home',
   components: {
-    Navbar
+    Navbar,
+    ModalNewPost
   }
 }
 

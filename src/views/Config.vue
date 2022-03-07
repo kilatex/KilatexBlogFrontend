@@ -7,7 +7,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
+                        Edit Profile
                     </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -19,7 +19,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
+                        Upload Avatar
                     </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -75,23 +75,27 @@
         </div>
         </div>
         </div>
+          <ModalNewPost></ModalNewPost>
+
   </div>
 </template>
 
 <style>
-.accordion-body{
-}
+
 .accordion-collapse{
     width: 100%;
 }
 </style>
 
 <script>
+import ModalNewPost from '../components/ModalNewPost.vue';
+
 import Navbar from '../components/Navbar.vue';
 export default {
     name: 'Config',
     components:{
-        Navbar
+        Navbar,
+        ModalNewPost
     }
 }
 </script>
