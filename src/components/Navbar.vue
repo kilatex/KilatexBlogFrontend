@@ -5,23 +5,26 @@
         <i class="fas fa-bars text-white" id="header-toggle"></i>
       </div>
       <div class="header_img">
-          <a href="#">
+          <router-link :to="{ name: 'Profile'}">
             <img src="https://i.imgur.com/hczKIze.jpg" alt="" />
-          </a>
+          </router-link>
       </div>
     </header>
     <div class="l-navbar bg-primary" id="nav-bar">
       <nav class="nav">
         <div>
-          <a href="#" class="nav_logo">
+          <router-link :to="{name: 'Home'}" class="nav_logo">
               <!--  <i class="bx bx-layer nav_logo-icon"></i> -->
             <span class="nav_logo-name">KILATEX</span>
-          </a>
+          </router-link>
           <div class="nav_list">
-            <a href="#" class="nav_link active">
+            <router-link :to="{name:'Home'}" class="nav_link" >
+            
               <i class="fas fa-home nav_icon"></i>
               <span class="nav_name">Home</span>
-            </a>
+           
+            
+            </router-link>
             <a href="#" class="nav_link">
               <i class="fas fa-users nav_icon"></i>
               <span class="nav_name">Users</span>
@@ -36,14 +39,18 @@
               <span class="nav_name">New Post</span>
             </a>
 
-            <a href="#" class="nav_link">
+            <router-link :to="{name:'Config'}" class="nav_link">
               <i class="fas fa-cog nav_icon"></i>
               <span class="nav_name">Config</span>
-            </a>
-            <a href="#" class="nav_link">
+            </router-link>
+
+            <router-link :to="{name:'Profile'}" class="nav_link">
+       
               <i class="fas fa-user nav_icon"></i>
               <span class="nav_name">My Profile</span>
-            </a>
+           
+
+            </router-link>
           </div>
         </div>
         <a href="#" class="nav_link">
@@ -280,6 +287,8 @@ export default {
 
       /*===== LINK ACTIVE =====*/
       const linkColor = document.querySelectorAll(".nav_link");
+     
+    
 
       function colorLink() {
         if (linkColor) {
