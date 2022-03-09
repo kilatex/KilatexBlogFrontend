@@ -106,6 +106,7 @@
 }
 </style>
 <script>
+
 export default {
   name: "ModalNewPost",
 };

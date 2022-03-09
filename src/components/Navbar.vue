@@ -5,7 +5,7 @@
         <i class="fas fa-bars text-white header-toggle" @click.prevent="toggle"  id="header-toggle"></i>
       </div>
       <div class="header_img">
-          <router-link :to="{ name: 'Profile'}">
+          <router-link :to="{ name: 'MyProfile'}">
             <img src="https://i.imgur.com/hczKIze.jpg" alt="" />
           </router-link>
       </div>
@@ -25,10 +25,10 @@
            
             
             </router-link>
-            <a href="#" class="nav_link">
+            <router-link :to="{name:'LastUsers'}" class="nav_link">
               <i class="fas fa-users nav_icon"></i>
               <span class="nav_name">Users</span>
-            </a>
+            </router-link>
             <a href="#" class="nav_link">
               <i class="fas fa-paste nav_icon my_posts_icon"></i>
               <span class="nav_name">My Posts</span>
@@ -44,7 +44,7 @@
               <span class="nav_name">Config</span>
             </router-link>
 
-            <router-link :to="{name:'Profile'}" class="nav_link">
+            <router-link :to="{name:'MyProfile'}" class="nav_link">
        
               <i class="fas fa-user nav_icon"></i>
               <span class="nav_name">My Profile</span>

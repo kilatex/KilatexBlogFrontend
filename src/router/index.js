@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import Home from '../views/Home.vue';
-import Profile from '../views/Profile.vue';
+import MyProfile from '../views/MyProfile.vue';
 import Config from '../views/Config.vue';
+import LastUsers from '../views/LastUsers.vue';
+import Profile from '../views/Profile.vue';
 
 const routes = [
   {
@@ -31,14 +33,24 @@ const routes = [
   },
   {
     path: '/profile',
-    name: 'Profile',
-    component: Profile
+    name: 'MyProfile',
+    component: MyProfile
   },
   {
     path: '/config',
     name: 'Config',
     component: Config
-  }
+  },
+  {
+    path: '/last-users',
+    name: 'LastUsers',
+    component: LastUsers
+  },
+  {
+    path: '/profile/id',
+    name: 'Profile',
+    component: Profile
+  },
 ]
 
 const router = createRouter({
