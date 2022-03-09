@@ -3,10 +3,10 @@
     <Navbar> </Navbar>
 
     <div class="container-box d-flex  justify-content-around">
-      <div class="row d-flex justify-content-center">
+      <div class="row d-flex users-box justify-content-center">
 
         <!-- Team item -->
-        <div class="col-xl-4 item-box col-sm-6 mb-5">
+        <div class="col-xl-3 item-box col-sm-6 mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -25,7 +25,7 @@
 
      
         <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
+        <div class="col-xl-3 col-sm-6 item-box mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -43,7 +43,7 @@
         <!-- End -->
 
         <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
+        <div class="col-xl-3 col-sm-6 item-box mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -60,10 +60,9 @@
         </div>
         <!-- End -->
 
-       
 
         <!-- Team item -->
-        <div class="col-xl-4 item-box col-sm-6 mb-5">
+        <div class="col-xl-3 item-box col-sm-6 mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -82,7 +81,7 @@
 
      
         <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
+        <div class="col-xl-3 col-sm-6 item-box mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -100,7 +99,7 @@
         <!-- End -->
 
         <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
+        <div class="col-xl-3 col-sm-6 item-box mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -117,8 +116,8 @@
         </div>
         <!-- End -->
 
-        <!-- Team item -->
-        <div class="col-xl-4 item-box col-sm-6 mb-5">
+         <!-- Team item -->
+        <div class="col-xl-3 item-box col-sm-6 mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -137,7 +136,7 @@
 
      
         <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
+        <div class="col-xl-3 col-sm-6 item-box mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -155,7 +154,7 @@
         <!-- End -->
 
         <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
+        <div class="col-xl-3 col-sm-6 item-box mb-5">
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -172,227 +171,6 @@
         </div>
         <!-- End -->
 
-        <!-- Team item -->
-        <div class="col-xl-4 item-box col-sm-6 mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-     
-        <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <router-link :to="{name: 'Profile'}">Look Profile</router-link>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-4 item-box col-sm-6 mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-     
-        <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <router-link :to="{name: 'Profile'}">Look Profile</router-link>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-4 item-box col-sm-6 mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-     
-        <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <router-link :to="{name: 'Profile'}">Look Profile</router-link>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-4 item-box col-sm-6 mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-     
-        <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-4 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <router-link :to="{name: 'Profile'}">Look Profile</router-link>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-      
       </div>
         <Sidebar></Sidebar>
     </div>
@@ -421,7 +199,10 @@
   color: #555;
 }
 .item-box{
-    min-width: 320px !important;
+    min-width: 300px !important;
+}
+.users-box{
+   width: 80%;
 }
 
 @media screen and (max-width: 1280px){

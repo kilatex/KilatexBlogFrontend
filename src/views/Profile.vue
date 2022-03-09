@@ -79,6 +79,19 @@
   width: 100%;
   height: auto;
 }
+
+@media screen and (max-width: 1280px){
+.sidebar-container .sidebar{
+  width: 200px !important;
+  height: auto;
+}
+}
+
+@media screen and (max-width: 1030px){
+ .sidebar-container{
+    display: none !important;
+  }
+}
 </style>
 
 <script>
