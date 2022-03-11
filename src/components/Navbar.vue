@@ -1,10 +1,20 @@
 <template>
   <div id="body-pd">
     <header class="header bg-primary" id="header">
-      <div class="header_toggle">
-        <i class="fas fa-bars text-white header-toggle" @click.prevent="toggle"  id="header-toggle"></i>
+      <div class="header_toggle ">
+        <div>
+          <i class="fas fa-bars text-white header-toggle" @click.prevent="toggle"  id="header-toggle"></i>
+        </div>
+
+     
       </div>
-      <div class="header_img">
+        <div class="search-container" id="search-bar">
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" v-model="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" @click="getPostsBySearch()" >Search</button>
+          </form>  
+        </div>
+      <div class="header_img bg-warning">
           <router-link :to="{ name: 'MyProfile'}">
             <img src="https://i.imgur.com/hczKIze.jpg" alt="" />
           </router-link>
@@ -63,8 +73,81 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "Navbar",
+     data(){
+      return{
+        search: '',
+       
+      }
+    }, 
+  mounted() {
+        // MENU TOGGLE
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+        const toggle = document.getElementById(toggleId),
+          nav = document.getElementById(navId),
+          bodypd = document.getElementById(bodyId),
+          headerpd = document.getElementById(headerId);
+
+        // Validate that all variables exist
+        if (toggle && nav && bodypd && headerpd) {
+          toggle.addEventListener("click", () => {
+            // show navbar
+            nav.classList.toggle("show");
+            // change icon
+            toggle.classList.toggle("bx-x");
+            // add padding to body
+            bodypd.classList.toggle("body-pd");
+            // add padding to header
+            headerpd.classList.toggle("body-pd");
+
+            if(window.innerWidth <= 810){
+             const screen = document.querySelector('#search-bar');
+             screen.classList.toggle('active-search');
+              
+            }
+          });
+        }
+      };
+      showNavbar("header-toggle", "nav-bar", "body-pd", "header");
+
+      
+    document.addEventListener("DOMContentLoaded", function () {
+     
+      /*===== LINK ACTIVE =====*/
+      const linkColor = document.querySelectorAll(".nav_link");
+     
+    
+
+      function colorLink() {
+        if (linkColor) {
+          linkColor.forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+        }
+      }
+      linkColor.forEach((l) => l.addEventListener("click", colorLink));
+
+      // Your code to run since DOM is loaded and ready
+    });
+  },
+  methods:{
+    getPostsBySearch(){
+        const search = this.search;
+        return search;
+    }
+  }
+};
+</script>
+
+
 
 <style>
+.active-search{
+  display: none;
+
+
+}
 :root {
   --header-height: 3rem;
   --nav-width: 68px;
@@ -96,7 +179,6 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  background-color: var(--white-color);
   z-index: var(--z-fixed);
   transition: 0.5s;
 }
@@ -105,6 +187,10 @@ a {
   color: var(--first-color);
   font-size: 1.5rem;
   cursor: pointer;
+}
+.search-container{
+  width: 60%;
+
 }
 
 .header_img {
@@ -226,6 +312,7 @@ a {
       position: relative;
       left: 3px;
   }
+
 @media screen and (max-width: 768px) {
   
     .l-navbar {
@@ -254,55 +341,11 @@ a {
  .header {
   padding: 0 20px;
     }
+    .search-container{
+  width: 80%;
+
 }
+}
+
+
 </style>
-
-<script>
-export default {
-  name: "Navbar",
-  mounted() {
-        // MENU TOGGLE
-        const showNavbar = (toggleId, navId, bodyId, headerId) => {
-        const toggle = document.getElementById(toggleId),
-          nav = document.getElementById(navId),
-          bodypd = document.getElementById(bodyId),
-          headerpd = document.getElementById(headerId);
-
-        // Validate that all variables exist
-        if (toggle && nav && bodypd && headerpd) {
-          toggle.addEventListener("click", () => {
-            // show navbar
-            nav.classList.toggle("show");
-            // change icon
-            toggle.classList.toggle("bx-x");
-            // add padding to body
-            bodypd.classList.toggle("body-pd");
-            // add padding to header
-            headerpd.classList.toggle("body-pd");
-          });
-        }
-      };
-      showNavbar("header-toggle", "nav-bar", "body-pd", "header");
-
-      
-    document.addEventListener("DOMContentLoaded", function () {
-     
-      /*===== LINK ACTIVE =====*/
-      const linkColor = document.querySelectorAll(".nav_link");
-     
-    
-
-      function colorLink() {
-        if (linkColor) {
-          linkColor.forEach((l) => l.classList.remove("active"));
-          this.classList.add("active");
-        }
-      }
-      linkColor.forEach((l) => l.addEventListener("click", colorLink));
-
-      // Your code to run since DOM is loaded and ready
-    });
-  }
-};
-</script>
-

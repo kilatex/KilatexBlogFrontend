@@ -1,14 +1,17 @@
 <template>  
-    <div class="" v-if="posts" >
-      <div class="posts" v-for="post in posts" :key="post.id">
-        <div class=" post-box bg-white"    >
+<div>
+    <div class="" v-if="posts && posts.length >= 1" >
+      <div class="posts" >
+        <div class=" post-box bg-white" v-for="post in posts" :key="post.id" >
           <div class="post-header p-2 ">
             <div class="avatar-post">
               <router-link to="/profile/id">
                 <img src="../assets/img/profile1.png" alt="Avatar Profile"> {{post.user.username}}
                 </router-link>
             </div>
-            <div class="created_at "> {{post.created_at}}
+            <div class="created_at " v-if="posts && posts.length >= 1">
+
+               {{moment(post.created_at).fromNow()}}
             </div>
           </div>
           <div class="image-box">
@@ -29,7 +32,14 @@
       
       </div>  
     </div>
-    
+
+    <div v-else-if="posts && posts.length <1">
+      Loading
+    </div>
+    <div v-else>
+      There are no posts to show
+    </div>
+</div>
 
 </template>
 
@@ -40,26 +50,31 @@
 
 <script>
 import axios from 'axios';
+import Global from '../global';
+import moment from 'moment';
+
 export default {
     name: 'Posts',
     mounted(){
       this.getPosts();
     },
+
     data(){
       return{
-        posts : [],
+        moment: moment,
+        url : Global.url,
+        posts : []
       }
-    },
+    },  
     methods: {
       getPosts(){
-        axios.get('http://127.0.0.1:8000/api/post')
+        axios.get(this.url+'api/post')
               .then(res => {
                
                if(res.data.status == 'success'){
                  this.posts = res.data.posts;
-                 console.log(this.posts);
                }
-              });
+      });
       }
     }
 }
