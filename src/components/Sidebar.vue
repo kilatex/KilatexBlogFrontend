@@ -1,6 +1,8 @@
 <template>
-  <div class="sidebar bg-white">
-    <div class="sidebar-box">
+
+  <div class="sidebar-container ">
+     <div class="sidebar bg-white ">
+      <div class="sidebar-box">
       <div class="profile">
         <img
           src="../assets/img/profile1.png"
@@ -13,13 +15,9 @@
 
       <h6>Recent posts about</h6>
       <ul>
-        <li><a href="#">PC</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
+        
+          <li v-for="category in categories.slice(0,5)" :key="category.id"   ><a href="#">{{category.name}}</a></li>
+          <li><a href="#" data-bs-toggle="modal" data-bs-target="#modalSearchByCategory">Other Categories</a></li>
       </ul>
 
       <h6>Find New Users</h6>
@@ -47,19 +45,29 @@
       </ul>
     </div>
   </div>
+  <search-by-category :categories="categories"></search-by-category>
+  </div>
+
+ 
+
+
+ 
 </template>
 
 <style>
 
 /* SIDEBAR STYLES */
+.sidebar-container{
+  width: 100%;
+}
 .sidebar{
   position: -webkit-sticky !important;
   position: sticky !important;
   top: 76px;
-  width: 20%;
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
   border-radius: 5px;
-  height: 100%;
+  height: auto;
 }
 .sidebar-box{
   padding: 20px;
@@ -97,8 +105,35 @@
   }
 }
 </style>
+
 <script>
+import SearchByCategory from "./SearchByCategory.vue";
+import axios from 'axios';
+import global from '../global'
 export default {
   name: "Sidebar",
+  components:{
+    SearchByCategory
+  },
+  data(){
+    return{
+      categories: [],
+      url: global.url
+    }
+  },
+  mounted(){
+    this.getCategories();
+  },
+  methods:{
+    getCategories(){
+      axios.get(this.url+'api/category').
+          then(response => {
+            this.categories = response.data;
+          }).
+          catch(error => {
+            console.log(error);
+          })
+    }
+  }
 };
 </script>

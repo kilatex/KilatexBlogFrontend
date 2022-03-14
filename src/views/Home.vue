@@ -16,7 +16,6 @@
 
 
   </div>
-  <ModalNewPost></ModalNewPost>
 
 </div>
 
@@ -25,7 +24,6 @@
 <script>
 // @ is an alias to /src
 import Navbar from '../components/Navbar.vue';
-import ModalNewPost from '../components/ModalNewPost.vue';
 import Sidebar from '../components/Sidebar.vue';
 import Posts from '../components/Posts.vue';
 import CreatePost from '../components/CreatePost.vue';
@@ -34,7 +32,6 @@ export default {
   name: 'Home',
   components: {
     Navbar,
-    ModalNewPost,
     Sidebar,
     Posts,
     CreatePost

@@ -63,19 +63,28 @@
             </router-link>
           </div>
         </div>
-        <a href="#" class="nav_link">
+        <a href="#"  data-bs-toggle="modal" data-bs-target="#modalLogout"  class="nav_link">
           <i class="fas fa-sign-out-alt nav_icon"></i>
           <span class="nav_name">SignOut</span>
         </a>
       </nav>
     </div>
     <!--Container Main start-->
+      <ModalNewPost></ModalNewPost>
+      <Logout></Logout>
+
   </div>
 </template>
 
 <script>
+import ModalNewPost from './ModalNewPost.vue';
+import Logout from './Logout.vue';
 export default {
   name: "Navbar",
+  components:{
+    ModalNewPost,
+    Logout
+  },
      data(){
       return{
         search: '',
@@ -143,10 +152,9 @@ export default {
 
 
 <style>
+
 .active-search{
   display: none;
-
-
 }
 :root {
   --header-height: 3rem;

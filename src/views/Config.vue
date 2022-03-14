@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar></Navbar>
         <div class="container-box d-flex row justify-content-around">
         <div class="col-md-8">
             <div class="accordion" id="accordionExample">
@@ -43,9 +42,9 @@
             </div>
         </div>
           <Sidebar></Sidebar>
-
         </div>
-          <ModalNewPost></ModalNewPost>
+                <Navbar></Navbar>
+
 
   </div>
 </template>
@@ -55,10 +54,12 @@
 .accordion-collapse{
     width: 100%;
 }
+.sidebar-container{
+    width: 20% !important;
+}
 </style>
 
 <script>
-import ModalNewPost from '../components/ModalNewPost.vue';
 import Sidebar from '../components/Sidebar.vue';
 
 import Navbar from '../components/Navbar.vue';
@@ -66,7 +67,6 @@ export default {
     name: 'Config',
     components:{
         Navbar,
-        ModalNewPost,
         Sidebar
     }
 }

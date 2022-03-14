@@ -16,7 +16,7 @@
                         <input type="text" class="form-control input-login rounded-left" placeholder="Name" name="name" v-model="user.name" required>
                     </div>
                     <div class="form-group input-box col-md-6">
-                        <input type="text" class="form-control input-login rounded-left" placeholder="Username" name="username" v-model="user.username" required>
+                        <input type="text" class="form-control input-login rounded-left" placeholder="Surname" name="surname" v-model="user.surname" required>
                     </div>
                 </div>
 
@@ -64,14 +64,18 @@
     }
 </style>
 <script>
-     import axios from 'axios';
-      import User from '../models/User';
+
+import axios from 'axios';
+import User from '../models/User';
+import global from '../global';
+
 
 export default {
     name: 'RegisterView',
     data(){
         return {
-            user : new User('','','','','')      
+            user : new User('','','','',''),
+            url:  global.url 
         }
     },
     mounted(){
@@ -81,10 +85,9 @@ export default {
      save(){
          let json = JSON.stringify(this.user);
          let params = 'json='+json;
-         console.log(params);
-         axios.post('http://127.0.0.1:8004/api/register', params )
-              .then(response =>{
-                  console.log(response);
+         axios.post(this.url+'api/register', params )
+              .then(() =>{
+                this.$router.push('/login');
               })
               .catch(error => {
                   console.log(error);

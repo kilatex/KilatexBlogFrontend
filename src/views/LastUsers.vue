@@ -174,7 +174,6 @@
       </div>
         <Sidebar></Sidebar>
     </div>
-      <ModalNewPost></ModalNewPost>
   </div>
 </template>
 
@@ -224,14 +223,12 @@
 </style>
 
 <script>
-import ModalNewPost from '../components/ModalNewPost.vue';
 import Sidebar from '../components/Sidebar.vue';
 import Navbar from '../components/Navbar.vue';
 
 export default {
   name: "LastUsers",
   components:{
-      ModalNewPost,
       Sidebar,
       Navbar
   }
