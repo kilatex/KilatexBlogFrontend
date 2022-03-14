@@ -46,13 +46,12 @@
 import PostModel from '../models/Post';
 import axios from 'axios';
 import Global from '../global';
-
 export default {
     name: 'CreatePost',
     data(){
         return{
         url : Global.url,
-        post : new PostModel('','','',''),
+        post : new PostModel('','','','',''),
         categories: []
         }
     },
@@ -74,6 +73,9 @@ export default {
                   });
         },
         createPost(){
+          
+            const user_auth = JSON.parse(localStorage.getItem('user'));
+            this.post.user_id = user_auth.sub;
             let json = JSON.stringify(this.post);
             let post = 'json='+json;
             console.log(post);

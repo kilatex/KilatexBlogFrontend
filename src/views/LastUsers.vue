@@ -225,12 +225,20 @@
 <script>
 import Sidebar from '../components/Sidebar.vue';
 import Navbar from '../components/Navbar.vue';
-
+import auth from '../middlewares/auth';
 export default {
   name: "LastUsers",
   components:{
       Sidebar,
       Navbar
+  },
+  data(){
+    return{
+
+    }
+  },
+  mounted(){
+    auth();
   }
 };
 </script>

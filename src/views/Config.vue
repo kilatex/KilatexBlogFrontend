@@ -61,13 +61,16 @@
 
 <script>
 import Sidebar from '../components/Sidebar.vue';
-
+import auth from '../middlewares/auth';
 import Navbar from '../components/Navbar.vue';
 export default {
     name: 'Config',
     components:{
         Navbar,
         Sidebar
+    },
+    mounted(){
+        auth();
     }
 }
 </script>

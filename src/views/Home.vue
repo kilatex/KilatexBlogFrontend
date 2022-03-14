@@ -27,7 +27,7 @@ import Navbar from '../components/Navbar.vue';
 import Sidebar from '../components/Sidebar.vue';
 import Posts from '../components/Posts.vue';
 import CreatePost from '../components/CreatePost.vue';
-
+import auth from '../middlewares/auth';
 export default {
   name: 'Home',
   components: {
@@ -35,6 +35,9 @@ export default {
     Sidebar,
     Posts,
     CreatePost
+  },
+  mounted(){
+    auth();
   }
 }
 

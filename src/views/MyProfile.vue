@@ -204,11 +204,14 @@
 
 <script>
 import Navbar from '../components/Navbar.vue';
-
+import auth from '../middlewares/auth';
 export default {
     name: 'MyProfile',
     components: {
         Navbar,
+    },
+    mounted(){
+        auth();
     }
 }
 </script>
