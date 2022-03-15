@@ -14,8 +14,13 @@
                {{moment(post.created_at).fromNow()}}
             </div>
           </div>
-          <div class="image-box">
-          <img  src="../assets/img/2.jpg" class="card-img-top" alt="...">
+          <div class="image-box" >
+            <div v-if="!post.image">
+            <img  src="../assets/img/2.jpg" class="card-img-top" alt="...">
+            </div>
+              <div v-if="post.image">
+            <img  :src="url+'api/post/image/'+post.image" class="card-img-top" alt="...">
+            </div>
           </div>
           <div class="card-body">
             <h5 class="card-title fw-bold">{{post.title}}</h5>
@@ -44,7 +49,9 @@
 </template>
 
 <style>
-
+.posts .post-box{
+  width: 100%;
+}
 </style>
 
 
@@ -68,11 +75,14 @@ export default {
     },  
     methods: {
       getPosts(){
+     
+          
         axios.get(this.url+'api/post')
               .then(res => {
                
                if(res.data.status == 'success'){
                  this.posts = res.data.posts;
+                 console.log(this.posts);
                }
       });
       }

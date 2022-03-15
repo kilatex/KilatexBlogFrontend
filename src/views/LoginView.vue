@@ -55,21 +55,22 @@ export default {
         }
     },
     mounted(){
-
+        
     },
     methods:{
         login(){
+
         let json = JSON.stringify(this.user);
          let params = 'json='+json;   
          console.log(params);        
-            axios.post(this.url+'api/login',params)
+            axios.post(this.url+'api/login',params,)
             .then((response) => {
                 /*
                 localStorage.setItem('user_token', response.data.token.original.access_token);
                 */
                localStorage.setItem('token', response.data.token);
               localStorage.setItem('user', JSON.stringify(response.data.user));
-            
+
                 this.$router.push('/home'); 
 
             }).catch(error => {

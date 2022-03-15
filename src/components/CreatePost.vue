@@ -4,7 +4,8 @@
     
             <div class="row">
             <div class="avatar-form col-md-1">
-              <img src="../assets/img/profile1.png" alt="Avatar Profile">
+
+              <img src="../assets/img/profile-default.png" alt="Avatar Profile">
             </div>
             <div class="col-md-11 textaera-box">
               <div class="form-floating mb-3">
@@ -21,9 +22,8 @@
             </div>
         
             <div class="my-2">
-              <label for="post_image" class="btn btn-success btn-post">Add File</label>
-              <input type="file" id="post_image" class="d-none ">
-
+              <label for="file" class="btn btn-success btn-post">Add File</label>
+              <input type="file" id="file" ref="file" name="file0" @change="fileChange()" class="d-none">
             </div>
             <div>
               <select class="form-select"  v-model="post.category" aria-label="Default select example">
@@ -52,13 +52,19 @@ export default {
         return{
         url : Global.url,
         post : new PostModel('','','','',''),
-        categories: []
+        categories: [],
+        file: ''
         }
     },
     mounted(){
       this.getCategories()
     },
     methods:{
+      fileChange(){
+        this.post.image =  this.$refs.file.files[0];    
+ 
+      },
+
         getCategories(){
           axios.get(this.url+'api/category')
                   .then(response => {
@@ -72,14 +78,26 @@ export default {
                     console.log(error);
                   });
         },
+
         createPost(){
-          
+          const formData =  new FormData();
+
             const user_auth = JSON.parse(localStorage.getItem('user'));
-            this.post.user_id = user_auth.sub;
-            let json = JSON.stringify(this.post);
-            let post = 'json='+json;
-            console.log(post);
-            axios.post(this.url+'api/post',post)
+            formData.append("file0", this.$refs.file.files[0]);
+            formData.append("title",this.post.title);
+            formData.append("content",this.post.content);
+            formData.append("category",this.post.category);
+            formData.append("user_id",user_auth.sub);
+
+            // let json = JSON.stringify(this.post);
+            // let post = 'json='+json;
+
+          const token = localStorage.getItem('token');
+            let headers = {
+              'Content-Type': 'multipart/form-data',
+              'Authorization' : token
+            }
+            axios.post(this.url+'api/post',formData ,{headers: headers})
                  .then(response =>{
                     console.log(response.data);
                  })

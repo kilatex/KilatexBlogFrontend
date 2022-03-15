@@ -88,10 +88,11 @@ export default {
      data(){
       return{
         search: '',
-       
       }
     }, 
   mounted() {
+     
+
         // MENU TOGGLE
         const showNavbar = (toggleId, navId, bodyId, headerId) => {
         const toggle = document.getElementById(toggleId),

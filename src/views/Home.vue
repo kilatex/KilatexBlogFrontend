@@ -49,7 +49,9 @@ export default {
 *{
   text-align: start;
 }
-
+.articles{
+  width: 60%;
+}
 /* POST STYLES */
 .post-header{
   font-weight: bold;
@@ -64,15 +66,13 @@ export default {
 }
 .post-box{
   margin: 20px 0px;
-    border-radius: 5px;
+  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
 }
 .card-body{
-  max-width: 750px !important;
   text-align: justify !important;
 }
 .image-box img{
-  max-width: 850px;
   width: 100%;
   max-height: 550px;
   border-radius: 0px;

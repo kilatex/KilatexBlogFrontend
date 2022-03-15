@@ -9,13 +9,12 @@
           class="avatar-sidebar"
           alt="Avatar Profile"
         />
-        <a href="#" class="fw-bold">Username</a>
+        <a href="#" class="fw-bold">{{user.username}}</a>
       </div>
       <h4 class="text-center text-primary fw-bold">Kilatex Blog</h4>
 
       <h6>Recent posts about</h6>
       <ul>
-        
           <li v-for="category in categories.slice(0,5)" :key="category.id"   ><a href="#">{{category.name}}</a></li>
           <li><a href="#" data-bs-toggle="modal" data-bs-target="#modalSearchByCategory">Other Categories</a></li>
       </ul>
@@ -118,11 +117,14 @@ export default {
   data(){
     return{
       categories: [],
-      url: global.url
+      url: global.url,
+      user: JSON.parse(localStorage.getItem('user'))
+
     }
   },
   mounted(){
     this.getCategories();
+   
   },
   methods:{
     getCategories(){

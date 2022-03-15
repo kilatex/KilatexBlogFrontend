@@ -28,10 +28,8 @@
               <Posts></Posts>
             
               </div>
-              <div class="sidebar-container">
               <Sidebar></Sidebar>
 
-              </div>
 
 
             </div>
@@ -45,6 +43,10 @@
 </template>
 
 <style>
+
+
+
+
 .profile-box{
   border-radius: 10px;
   padding-top: 50px;
