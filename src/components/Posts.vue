@@ -6,7 +6,27 @@
           <div class="post-header p-2 ">
             <div class="avatar-post">
               <router-link to="/profile/id">
-                <img src="../assets/img/profile1.png" alt="Avatar Profile"> {{post.user.username}} 
+
+                  <span v-if="postsType =='PostsByUser'">
+                    <span v-if="userPost.image">
+                      <img src="../assets/img/profile1.png" alt="Avatar Profile">
+                    </span>
+                    <span v-else>
+                    <img src="../assets/img/profile-default.png" alt="Avatar Profile">
+                    </span>
+                    {{userPost.username}} 
+                  </span>
+
+
+                  <span v-if="postsType =='PostsHome'">
+                    <span v-if="post.user.image">
+                      <img src="../assets/img/profile1.png" alt="Avatar Profile">
+                    </span>
+                    <span v-else>
+                    <img src="../assets/img/profile-default.png" alt="Avatar Profile">
+                    </span>
+                    {{post.user.username}} 
+                  </span>
                 </router-link>
             </div>
             <div class="created_at " v-if="posts && posts.length >= 1">
@@ -37,11 +57,17 @@
       </div>  
     </div>
 
-    <div v-else-if="noResult != false">
-      NOT FOUND
+   
+      <div v-else-if="noResult != false" class="posts">
+        <div class="posts-none">
+          <h3 class="fw-bold mt-3 text-danger">Posts Not found</h3> 
+        </div>
     </div>
     <div v-else>
-      There are no posts to show
+      <div class="posts-none">
+        <h3 class="fw-bold mt-3 text-danger">There are no posts to show</h3> 
+       
+      </div>
     </div>
     <InfiniteScroll @infinite-scroll="getPosts()" :message="message" :noResult="noResult"></InfiniteScroll> 
 </div>
@@ -49,8 +75,17 @@
 </template>
 
 <style>
+.posts{
+}
+.posts-profile{
+  width: 100%;
+}
 .posts .post-box{
   width: 100%;
+}
+
+.posts-none{
+  max-width: 1050px;
 }
 </style>
 
@@ -66,7 +101,18 @@ export default {
     components:{
      InfiniteScroll
     },
+    props: ['postsType','userPost'],
     mounted(){
+      switch(this.postsType){
+        case "PostsByUser": 
+         this.urlPosts = this.url+'api/post/user/'+this.$route.params.id+'?page=';
+              break;
+        case "PostsHome":
+            this.urlPosts = this.url+'api/post?page=';
+             break;
+        case "PostsByCategory":
+            console.log('PostsByCategory'); break;
+      }
       this.getPosts();
     },
 
@@ -74,10 +120,11 @@ export default {
       return{
         moment: moment,
         url : Global.url,
+        urlPosts: '',
         posts : [],
         page: 1,
         message: '',
-        noResult: false
+        noResult: false,
       }
     },  
     methods: {
@@ -88,10 +135,9 @@ export default {
             'Access-Control-Allow-Methods':'GET',
             'Access-Control-Allow-Headers':'text/json',
           }
-          axios.get(this.url+'api/post?page='+this.page,{headers:headers})
+          axios.get(this.urlPosts+this.page,{headers:headers})
              .then(response => {
                console.log(response.data.posts.data.length);
-               
                 if(response.data.posts.data.length) {
                   this.posts.push(...response.data.posts.data);
                   this.page++;

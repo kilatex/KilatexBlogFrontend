@@ -7,7 +7,7 @@
       <h4 class="mb-4">Post Something about tech world!</h4>
       
       <CreatePost></CreatePost>
-      <Posts></Posts>
+      <Posts  postsType="PostsHome"> </Posts>
     </div>
     
 
