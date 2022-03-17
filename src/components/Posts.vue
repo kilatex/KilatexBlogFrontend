@@ -5,7 +5,7 @@
         <div class=" post-box bg-white" v-for="post in posts" :key="post.id" >
           <div class="post-header p-2 ">
             <div class="avatar-post">
-              <router-link :to="{name:'Profile', params:{id: band == true  ?  userPost.id : post.user.id } }">
+              <router-link :to="{name:'Profile', params:{id: band == true  ? id_user  : post.user.id } }">
 
                   <span v-if="postsType =='PostsByUser'">
                     <span v-if="userPost.image">
@@ -102,17 +102,8 @@ export default {
     },
     props: ['postsType','userPost'],
     mounted(){
-      switch(this.postsType){
-        case "PostsByUser": 
-          this.band = true
-         this.urlPosts = this.url+'api/post/user/'+this.$route.params.id+'?page=';
-              break;
-        case "PostsHome":
-            this.urlPosts = this.url+'api/post?page=';
-             break;
-        case "PostsByCategory":
-            console.log('PostsByCategory'); break;
-      }
+      this.postsUrl();
+
       this.getPosts();
     },
 
@@ -125,10 +116,24 @@ export default {
         page: 1,
         message: '',
         noResult: false,
-        band: ''
+        band: '',
+        id_user: this.$route.params.id
       }
-    },  
+    },   
     methods: {
+      async postsUrl(){
+        switch(this.postsType){
+          case "PostsByUser": 
+            this.band = true
+          this.urlPosts = this.url+'api/post/user/'+this.$route.params.id+'?page=';
+                break;
+          case "PostsHome":
+              this.urlPosts = this.url+'api/post?page=';
+              break;
+          case "PostsByCategory":
+              console.log('PostsByCategory'); break;
+        }
+      },
       async getPosts(){
           let   headers =  {
             'Access-Control-Allow-Credentials' : true,
@@ -136,9 +141,11 @@ export default {
             'Access-Control-Allow-Methods':'GET',
             'Access-Control-Allow-Headers':'text/json',
           }
-          axios.get(this.urlPosts+this.page,{headers:headers})
+        
+      
+      
+            axios.get(this.urlPosts+this.page,{headers:headers})
              .then(response => {
-               console.log(response.data.posts.data.length);
                 if(response.data.posts.data.length) {
                   this.posts.push(...response.data.posts.data);
                   this.page++;
@@ -150,9 +157,6 @@ export default {
              .catch(error => {
                console.log(error)
              });
-       
-      
-
       }
     }
 }

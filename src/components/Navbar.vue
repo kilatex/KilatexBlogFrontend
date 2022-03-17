@@ -14,9 +14,14 @@
             <button class="btn btn-outline-success" @click="getPostsBySearch()" >Search</button>
           </form>  
         </div>
-      <div class="header_img bg-warning">
+      <div class="header_img">
           <router-link :to="{ name: 'MyProfile'}">
-            <img src="https://i.imgur.com/hczKIze.jpg" alt="" />
+            <span v-if="user.image != null">
+              <img src="../assets/img/profile1.png" alt="Avatar Profile">
+            </span>
+            <span v-else>
+            <img src="../assets/img/profile-default.png" alt="Avatar Profile">
+            </span>
           </router-link>
       </div>
     </header>
@@ -88,6 +93,7 @@ export default {
      data(){
       return{
         search: '',
+        user: JSON.parse(localStorage.getItem('user'))
       }
     }, 
   mounted() {

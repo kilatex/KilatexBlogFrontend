@@ -128,9 +128,13 @@ export default {
       }
     },
     mounted(){
+      let headers = {
+              'Authorization' : localStorage.getItem('token')
+      }
       this.id_user = this.$route.params.id;
+      const url = this.url+'api/get-user/'+this.id_user;
 
-      axios.get(this.url+'api/get-user/'+this.id_user).
+      axios.get(url,{headers:headers}).
             then(res => {
                 this.user = res.data.user;
             }).

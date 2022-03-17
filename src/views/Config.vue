@@ -10,7 +10,7 @@
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
-                aria-expanded="true"
+                aria-expanded="false"
                 aria-controls="collapseOne"
               >
                 Edit Profile
@@ -23,7 +23,7 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <div class="form-box">
+                <div class="form-user-box">
                   <form @submit.prevent="createPost()">
                     <div class="row">
                       <div class="avatar-form col-md-1">
@@ -135,7 +135,7 @@
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                Accordion Item #3
+               Change Password
               </button>
             </h2>
             <div
@@ -184,7 +184,7 @@
 .sidebar-container {
   width: 20% !important;
 }
-.form-box {
+.form-user-box {
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px !important;
   padding: 00px !important;
   border-radius: 5px;
