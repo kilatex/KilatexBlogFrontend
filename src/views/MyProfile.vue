@@ -5,6 +5,7 @@
         <div class="main-body">
             <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
+
                 <div class="card">
                     <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
@@ -130,6 +131,7 @@
 </template>
 
 <style> 
+
 .container-box{
     padding: 80px 100px 0px 150px;
 }

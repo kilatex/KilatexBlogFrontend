@@ -10,13 +10,16 @@
              <img src="../assets/img/profile1.png" class="avatar-profile shadow" alt="">
           </div>  
           <div class="name">
-            <h3 class="fw-bold text-center">Josep Guardiola</h3>
+            <h3 class="fw-bold text-center">{{user.name}}  {{user.surname}}</h3>
           </div>  
         </div>
 
         <div class="about  col-md-10 offset-md-1">
           <h5>About Josep</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo possimus eos, cumque dolor magnam illo aut, aliquam unde quibusdam vero, veritatis iure at dicta ad. Ipsa doloribus hic magnam deleniti!</p>
+          <p>
+            <span v-if="user.description">{{user.description}}</span>
+            <span v-else>{{user.name}} is a Kilatex Blog User!</span>
+          </p>
         </div>
 
         <div class="posts  col-md-10 mt-4  offset-md-1">
@@ -101,7 +104,8 @@ import Navbar from '../components/Navbar.vue';
 import ModalNewPost from '../components/ModalNewPost.vue';
 import Posts from '../components/Posts.vue';
 import Sidebar from '../components/Sidebar.vue';
-
+import axios from 'axios';
+import global from '../global';
 export default {
     name: 'Profile',
     components:{
@@ -109,6 +113,24 @@ export default {
         ModalNewPost,
         Posts,
         Sidebar
+    },
+    mounted(){
+      this.id_url = this.$route.params.id;
+
+      axios.get(this.url+'api/get-user/'+this.id_url).
+            then(res => {
+                this.user = res.data.user;
+            }).
+            catch(error => {
+                console.log(error);
+            });
+    },  
+    data(){
+      return{
+      id_url: null,
+      url: global.url,
+      user: []
+      }
     }
 } 
 </script>

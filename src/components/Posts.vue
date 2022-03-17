@@ -6,11 +6,10 @@
           <div class="post-header p-2 ">
             <div class="avatar-post">
               <router-link to="/profile/id">
-                <img src="../assets/img/profile1.png" alt="Avatar Profile"> {{post.user.username}}
+                <img src="../assets/img/profile1.png" alt="Avatar Profile"> {{post.user.username}} 
                 </router-link>
             </div>
             <div class="created_at " v-if="posts && posts.length >= 1">
-
                {{moment(post.created_at).fromNow()}}
             </div>
           </div>
@@ -34,16 +33,17 @@
             </div>
           </div>
         </div>
-      
+
       </div>  
     </div>
 
-    <div v-else-if="posts && posts.length <1">
-      Loading
+    <div v-else-if="noResult != false">
+      NOT FOUND
     </div>
     <div v-else>
       There are no posts to show
     </div>
+    <InfiniteScroll @infinite-scroll="getPosts()" :message="message" :noResult="noResult"></InfiniteScroll> 
 </div>
 
 </template>
@@ -59,9 +59,13 @@
 import axios from 'axios';
 import Global from '../global';
 import moment from 'moment';
+import InfiniteScroll from "infinite-loading-vue3";
 
 export default {
     name: 'Posts',
+    components:{
+     InfiniteScroll
+    },
     mounted(){
       this.getPosts();
     },
@@ -70,21 +74,38 @@ export default {
       return{
         moment: moment,
         url : Global.url,
-        posts : []
+        posts : [],
+        page: 1,
+        message: '',
+        noResult: false
       }
     },  
     methods: {
-      getPosts(){
-     
-          
-        axios.get(this.url+'api/post')
-              .then(res => {
+      async getPosts(){
+          let   headers =  {
+            'Access-Control-Allow-Credentials' : true,
+            'Access-Control-Allow-Origin':'*',
+            'Access-Control-Allow-Methods':'GET',
+            'Access-Control-Allow-Headers':'text/json',
+          }
+          axios.get(this.url+'api/post?page='+this.page,{headers:headers})
+             .then(response => {
+               console.log(response.data.posts.data.length);
                
-               if(res.data.status == 'success'){
-                 this.posts = res.data.posts;
-                 console.log(this.posts);
-               }
-      });
+                if(response.data.posts.data.length) {
+                  this.posts.push(...response.data.posts.data);
+                  this.page++;
+                } else {
+                  this.noResult = true;
+                  this.message = "No result found";
+                }
+             })
+             .catch(error => {
+               console.log(error)
+             });
+       
+      
+
       }
     }
 }

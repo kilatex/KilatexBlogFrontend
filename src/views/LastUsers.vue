@@ -1,68 +1,13 @@
 <template>
   <div>
     <Navbar> </Navbar>
-
+    <h2 class="title-page text-center">Lastest Users</h2>
     <div class="container-box d-flex  justify-content-around">
-      <div class="row d-flex users-box justify-content-center">
-
-        <!-- Team item -->
-        <div class="col-xl-3 item-box col-sm-6 mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-     
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <router-link :to="{name: 'Profile'}">Look Profile</router-link>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
+      <div class="row d-flex users-box justify-content-center" v-if="users && users.length >= 1">
 
 
         <!-- Team item -->
-        <div class="col-xl-3 item-box col-sm-6 mb-5">
+        <div class="col-xl-3 item-box col-sm-6 mb-5" v-for="user in users" :key="user.id" >
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
             <img
               src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
@@ -70,110 +15,20 @@
               width="100"
               class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
             />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
+            <h5 class="text-center">{{user.name}}  {{user.surname}} </h5>
+            <!-- --> <span class="small d-block text-center text-muted">{{user.username}}</span>
             <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
+                <router-link :to="{name:'Profile',params:{id: user.id}}">Look Profile</router-link>
             </div>
           </div>
-        </div>
-        <!-- End -->
-
-     
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <router-link :to="{name: 'Profile'}">Look Profile</router-link>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-         <!-- Team item -->
-        <div class="col-xl-3 item-box col-sm-6 mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-     
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <a href="#">Look Profile</a>
-            </div>
-          </div>
-        </div>
-        <!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 item-box mb-5">
-          <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
-            <h5 class="text-center">Manuella Nevoresky</h5>
-            <span class="small d-block text-center text-muted">CEO - Founder</span>
-            <div class="social text-center mb-0 list-inline mt-3">
-                <router-link :to="{name: 'Profile'}">Look Profile</router-link>
-            </div>
-          </div>
-        </div>
+        </div> 
         <!-- End -->
 
       </div>
         <Sidebar></Sidebar>
     </div>
+    <InfiniteScroll @infinite-scroll="getUsers()" :message="message" :noResult="noResult"></InfiniteScroll> 
+
   </div>
 </template>
 
@@ -190,6 +45,9 @@
   transition: all 0.3s;
   font-size: 0.9rem;
 }
+.container-box{
+  margin-top: 0px !important;
+}
 
 .social-link:hover,
 .social-link:focus {
@@ -202,6 +60,13 @@
 }
 .users-box{
    width: 80%;
+}
+.title-page{
+  font-size: 36px;
+  position: relative;
+  top: 50px;
+  margin-top: 40px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1280px){
@@ -226,19 +91,48 @@
 import Sidebar from '../components/Sidebar.vue';
 import Navbar from '../components/Navbar.vue';
 import auth from '../middlewares/auth';
+import axios from 'axios';
+import InfiniteScroll from "infinite-loading-vue3";
+import global from '../global'
 export default {
   name: "LastUsers",
   components:{
       Sidebar,
-      Navbar
+      Navbar,
+      InfiniteScroll
   },
   data(){
     return{
-
+      users: [],
+      message: '',
+      noResult: false,
+      url : global.url
     }
   },
   mounted(){
-    auth();
+    auth();    
+    this.getUsers();
+  },
+  methods:{
+      async getUsers(){
+      let headers =  {
+        'Authorization': localStorage.getItem('token')
+      }
+      axios.get(this.url+'api/users?page='+this.page,{headers:headers})
+          .then(response => {
+
+            if(response.data.users.data.length) {
+              this.users.push(...response.data.users.data);
+              this.page++;
+            } else {
+              this.noResult = true;
+              this.message = "No result found";
+            }
+          })
+          .catch(error => {
+            console.log(error)
+          });
+  }
   }
 };
 </script>

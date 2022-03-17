@@ -23,7 +23,7 @@
         
             <div class="my-2">
               <label for="file" class="btn btn-success btn-post">Add File</label>
-              <input type="file" id="file" ref="file" name="file0" @change="fileChange()" class="d-none">
+              <input type="file" id="file" ref="file" name="file0" @change="fileChange()">
             </div>
             <div>
               <select class="form-select"  v-model="post.category" aria-label="Default select example">
@@ -62,7 +62,7 @@ export default {
     methods:{
       fileChange(){
         this.post.image =  this.$refs.file.files[0];    
- 
+
       },
 
         getCategories(){
@@ -88,7 +88,6 @@ export default {
             formData.append("content",this.post.content);
             formData.append("category",this.post.category);
             formData.append("user_id",user_auth.sub);
-
             // let json = JSON.stringify(this.post);
             // let post = 'json='+json;
 
