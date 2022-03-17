@@ -9,12 +9,17 @@
         <!-- Team item -->
         <div class="col-xl-3 item-box col-sm-6 mb-5" v-for="user in users" :key="user.id" >
           <div class="bg-white text-center rounded shadow-sm py-5 px-4">
-            <img
-              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
-              alt=""
-              width="100"
-              class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm"
-            />
+            <span v-if="user.image">
+             <img src="../assets/img/profile1.png" width="100" 
+             class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm" 
+             alt="User Profile Image">
+             </span>
+             <span v-else>
+             <img src="../assets/img/profile-default.png" width="100" 
+             class="img-fluid  text-center rounded-circle mb-3 img-thumbnail shadow-sm" 
+             alt="User Profile Image">
+             </span>
+
             <h5 class="text-center">{{user.name}}  {{user.surname}} </h5>
             <!-- --> <span class="small d-block text-center text-muted">{{user.username}}</span>
             <div class="social text-center mb-0 list-inline mt-3">

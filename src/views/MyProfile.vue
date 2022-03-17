@@ -11,9 +11,9 @@
                     <div class="d-flex flex-column align-items-center text-center">
                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
-                        <h4>John Doe</h4>
-                        <p class="text-secondary mb-1">Full Stack Developer</p>
-                        <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                        <h4>      {{user.name}} {{user.surname}} </h4>
+                        <p class="text-secondary mb-1">@{{user.username}} </p>
+                        <!-- <p class="text-muted font-size-sm">Since  {{moment(user.created_at)}}</p> -->
                         </div>
                     </div>
                     </div>
@@ -51,7 +51,7 @@
                         <h6 class="mb-0">Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        Kenneth Valdez
+                        {{user.name}}
                         </div>
                     </div>
                     <hr>
@@ -60,7 +60,7 @@
                         <h6 class="mb-0">Surname</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        fip@jukmuh.al
+                         {{user.surname}}
                         </div>
                     </div>
                     <hr>
@@ -69,7 +69,7 @@
                         <h6 class="mb-0">Username</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        (239) 816-9029
+                          {{user.username}}
                         </div>
                     </div>
                     <hr>
@@ -78,7 +78,7 @@
                         <h6 class="mb-0">Email</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        (320) 380-4539
+                        {{user.email}}
                         </div>
                     </div>
                     <hr>
@@ -87,7 +87,7 @@
                         <h6 class="mb-0">Password</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                        Bay Area, San Francisco, CA
+                        *************
                         </div>
                     </div>
                     <hr>
@@ -106,7 +106,8 @@
                         <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Description</h6>
 
                             <div class="description">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis eaque iure assumenda repudiandae, excepturi nostrum esse doloribus ducimus consequuntur vel accusantium? Explicabo magnam sequi delectus. Cumque reprehenderit nostrum quasi asperiores.
+                                <span v-if="!user.description"> Add Description </span>
+                                <span v-else> {{user.description}} </span>
                                 <strong><a href="#">Edit Description</a></strong>
 
                             </div>
@@ -207,13 +208,23 @@
 <script>
 import Navbar from '../components/Navbar.vue';
 import auth from '../middlewares/auth';
+import moment from 'moment';
+
 export default {
     name: 'MyProfile',
     components: {
         Navbar,
     },
+    data(){
+        return {
+            user: [],
+            moment:moment
+        }
+    },
     mounted(){
         auth();
-    }
+        this.user = JSON.parse(localStorage.getItem('user'));
+    },
+  
 }
 </script>

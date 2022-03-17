@@ -75,8 +75,7 @@
 </template>
 
 <style>
-.posts{
-}
+
 .posts-profile{
   width: 100%;
 }
