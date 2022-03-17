@@ -5,7 +5,7 @@
         <div class=" post-box bg-white" v-for="post in posts" :key="post.id" >
           <div class="post-header p-2 ">
             <div class="avatar-post">
-              <router-link to="/profile/id">
+              <router-link :to="{name:'Profile', params:{id: band == true  ?  userPost.id : post.user.id } }">
 
                   <span v-if="postsType =='PostsByUser'">
                     <span v-if="userPost.image">
@@ -105,6 +105,7 @@ export default {
     mounted(){
       switch(this.postsType){
         case "PostsByUser": 
+          this.band = true
          this.urlPosts = this.url+'api/post/user/'+this.$route.params.id+'?page=';
               break;
         case "PostsHome":
@@ -125,6 +126,7 @@ export default {
         page: 1,
         message: '',
         noResult: false,
+        band: ''
       }
     },  
     methods: {
