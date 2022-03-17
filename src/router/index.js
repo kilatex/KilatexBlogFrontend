@@ -4,8 +4,9 @@ import RegisterView from '../views/RegisterView.vue';
 import Home from '../views/Home.vue';
 import MyProfile from '../views/MyProfile.vue';
 import Config from '../views/Config.vue';
-import LastUsers from '../views/LastUsers.vue';
+import LatestUsers from '../views/LatestUsers.vue';
 import Profile from '../views/Profile.vue';
+import PostsByCategory from '../views/PostsByCategory'
 
 const routes = [
   {
@@ -42,15 +43,20 @@ const routes = [
     component: Config
   },
   {
-    path: '/last-users',
-    name: 'LastUsers',
-    component: LastUsers
+    path: '/latest-users',
+    name: 'LatestUsers',
+    component: LatestUsers
   },
   {
     path: '/profile/:id',
     name: 'Profile',
     component: Profile
   },
+  {
+    path:'/category/:category',
+    name: 'PostsByCategory',
+    component: PostsByCategory
+  }
 ]
 
 const router = createRouter({

@@ -40,7 +40,7 @@
            
             
             </router-link>
-            <router-link :to="{name:'LastUsers'}" class="nav_link">
+            <router-link :to="{name:'LatestUsers'}" class="nav_link">
               <i class="fas fa-users nav_icon"></i>
               <span class="nav_name">Users</span>
             </router-link>

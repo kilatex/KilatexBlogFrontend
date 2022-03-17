@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar> </Navbar>
-    <h2 class="title-page text-center">Lastest Users</h2>
+    <h2 class="title-page text-center">Latest Users</h2>
     <div class="container-box d-flex  justify-content-around">
       <div class="row d-flex users-box justify-content-center" v-if="users && users.length >= 1">
 
@@ -100,7 +100,7 @@ import axios from 'axios';
 import InfiniteScroll from "infinite-loading-vue3";
 import global from '../global'
 export default {
-  name: "LastUsers",
+  name: "LatestUsers",
   components:{
       Sidebar,
       Navbar,

@@ -4,42 +4,30 @@
      <div class="sidebar bg-white ">
       <div class="sidebar-box">
       <div class="profile">
-        <img
-          src="../assets/img/profile1.png"
-          class="avatar-sidebar"
-          alt="Avatar Profile"
-        />
-        <a href="#" class="fw-bold">{{user.username}}</a>
+          <span v-if="user.image != null">
+            <img src="../assets/img/profile1.png"   class="avatar-sidebar" alt="Avatar Profile">
+          </span>
+          <span v-else>
+            <img src="../assets/img/profile-default.png"   class="avatar-sidebar" alt="Avatar Profile">
+          </span>
+        <router-link to="/profile" class="fw-bold">{{user.username}}</router-link>
       </div>
       <h4 class="text-center text-primary fw-bold">Kilatex Blog</h4>
 
       <h6>Recent posts about</h6>
       <ul>
-          <li v-for="category in categories.slice(0,5)" :key="category.id"   ><a href="#">{{category.name}}</a></li>
+          <li v-for="category in categories.slice(0,5)" :key="category.id">
+            <router-link :to="{name: 'PostsByCategory'  ,params: {category: category.name}}">{{category.name}}</router-link>
+          </li>
           <li><a href="#" data-bs-toggle="modal" data-bs-target="#modalSearchByCategory">Other Categories</a></li>
       </ul>
 
       <h6>Find New Users</h6>
-      <ul>
-        <li class="my-3">
-          <a href="#" class="avatar-list">
-            <img src="../assets/img/2.jpg" class="" alt="" /> Username 1
-          </a>
-        </li>
-        <li class="my-3">
-          <a href="#" class="avatar-list">
-            <img src="../assets/img/2.jpg" class="" alt="" /> Username 1
-          </a>
-        </li>
-        <li class="my-3">
-          <a href="#" class="avatar-list">
-            <img src="../assets/img/2.jpg" class="" alt="" /> Username 1
-          </a>
-        </li>
-        <li class="my-3">
-          <a href="#" class="avatar-list">
-            <img src="../assets/img/2.jpg" class="" alt="" /> Username 1
-          </a>
+      <ul >
+        <li v-for="user in users" :key="user.id"  class="my-3">
+          <router-link :to="{name:'Profile',params:{id:user.id}}" class="avatar-list">
+            <img src="../assets/img/2.jpg" class="" alt="" /> @{{user.username}}
+          </router-link>
         </li>
       </ul>
     </div>
@@ -118,13 +106,16 @@ export default {
     return{
       categories: [],
       url: global.url,
-      user: JSON.parse(localStorage.getItem('user'))
-
+      user: JSON.parse(localStorage.getItem('user')),
+      headers : {
+            'Authorization': localStorage.getItem('token')
+          },
+      users: []
     }
   },
   mounted(){
     this.getCategories();
-   
+    this.getLatestUsers();
   },
   methods:{
     getCategories(){
@@ -134,6 +125,16 @@ export default {
           }).
           catch(error => {
             console.log(error);
+          })
+    },
+    getLatestUsers(){
+      axios.get(this.url+'api/latest-users',{headers: this.headers}).
+          then(res => {
+            this.users = res.data.users;
+            console.log(this.users);
+          }).
+          catch(err => {
+            console.log(err);
           })
     }
   }
