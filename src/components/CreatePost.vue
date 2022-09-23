@@ -22,7 +22,7 @@
         
             <div class="my-2">
               <label for="file" class="btn btn-success btn-post">Add File</label>
-              <input class="d-none" type="file" id="file" ref="file" name="file0" @change="fileChange()">
+              <input  type="file" id="file" ref="file" name="file0" @change="fileChange()">
             </div>
             <div>
               <select class="form-select"  v-model="post.category" aria-label="Default select example">
@@ -45,6 +45,8 @@
 import PostModel from '../models/Post';
 import axios from 'axios';
 import Global from '../global';
+import Swal from 'sweetalert2';
+
 export default {
     name: 'CreatePost',
     data(){
@@ -63,46 +65,52 @@ export default {
         this.post.image =  this.$refs.file.files[0];    
 
       },
-
-        getCategories(){
-          axios.get(this.url+'api/category')
-                  .then(response => {
-                    
-                    if (response.status == 200){
-                      this.categories = response.data;
-                    }
-                   
-                  })
-                  .catch(error => {
-                    console.log(error);
-                  });
-        },
-
-        createPost(){
-          const formData =  new FormData();
-
-            const user_auth = JSON.parse(localStorage.getItem('user'));
-            formData.append("file0", this.$refs.file.files[0]);
-            formData.append("title",this.post.title);
-            formData.append("content",this.post.content);
-            formData.append("category",this.post.category);
-            formData.append("user_id",user_auth.sub);
-            // let json = JSON.stringify(this.post);
-            // let post = 'json='+json;
-
-          const token = localStorage.getItem('token');
-            let headers = {
-              'Content-Type': 'multipart/form-data',
-              'Authorization' : token
-            }
-            axios.post(this.url+'api/post',formData ,{headers: headers})
-                 .then(response =>{
-                    console.log(response.data);
-                 })
+      getCategories(){
+        axios.get(this.url+'api/category')
+                .then(response => {
+                  
+                  if (response.status == 200){
+                    this.categories = response.data;
+                  }
+                  
+                })
                 .catch(error => {
                   console.log(error);
                 });
-        }
+      },
+      createPost(){
+        const formData =  new FormData();
+
+          const user_auth = JSON.parse(localStorage.getItem('user'));
+          formData.append("file0", this.$refs.file.files[0]);
+          formData.append("title",this.post.title);
+          formData.append("content",this.post.content);
+          formData.append("category",this.post.category);
+          formData.append("user_id",user_auth.sub);
+          // let json = JSON.stringify(this.post);
+          // let post = 'json='+json;
+
+        const token = localStorage.getItem('token');
+          let headers = {
+            'Content-Type': 'multipart/form-data',
+            'Authorization' : token
+          }
+          axios.post(this.url+'api/post',formData ,{headers: headers})
+                .then( () =>{
+                    Swal.fire(
+                      'Good job!',
+                      'Post Created!',
+                      'success'
+                    );
+                    this.redirectToProfile(user_auth.sub);
+                })
+              .catch(error => {
+                console.log(error);
+              });
+      },
+     redirectToProfile(idUser){
+      this.$router.push('/profile/'+idUser); 
+     }
     }
 }
 </script>
