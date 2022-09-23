@@ -6,7 +6,6 @@ class Post{
         this.content = content;
         this.file0 = file0;
         this.category = category;
-
     }
 }
 

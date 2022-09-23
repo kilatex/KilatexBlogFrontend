@@ -31,12 +31,9 @@ export default {
     auth();
   }
 }
-
 </script>
 
 <style>
-
-
 *{
   text-align: start;
 }
@@ -68,7 +65,6 @@ export default {
   max-height: 550px;
   border-radius: 0px;
 }
-
 /* FORM STYLES */
 .form-box{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
@@ -77,7 +73,6 @@ export default {
   width: 100%;
   background: white;
 }
-
 .avatar-form img, .avatar-post img{
   width: 35px;
   height: 35px;
@@ -91,9 +86,6 @@ export default {
 .btn-post{
   width: 120px;
 }
-
-
-
 @media screen and (max-width: 1030px) {
   .articles{
     width: 80%;
@@ -107,13 +99,10 @@ export default {
     width: 40px;
     height: 40px;
   }
- 
   .container-box{
     width: 100%;    
     padding-left: 3vh;
   }
-
- 
 }
 @media screen and (max-width: 440px) {
   .articles{
