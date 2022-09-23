@@ -14,7 +14,7 @@
               data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <div class="form-user-box">
-                  <form @submit.prevent="createPost()">
+                  <form @submit.prevent="updateUser()">
                     <div class="row">
                       <div class="avatar-form col-md-1">
                         <img src="../assets/img/profile-default.png" alt="Avatar Profile" />
@@ -87,12 +87,10 @@
                   <input type="password" class="form-control" id="passwordNew" placeholder="New Password" />
                   <label for="passwordNew">New Password</label>
                 </div>
-
                 <div class="form-floating mb-3">
                   <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirm New Password" />
                   <label for="passwordConfirm">Confirm New Password</label>
                 </div>
-
                 <button type="submit" class="btn btn-success  mt-2">
                   Change Password
                 </button>
@@ -127,6 +125,10 @@
 import Sidebar from "../components/Sidebar.vue";
 import auth from "../middlewares/auth";
 import Navbar from "../components/Navbar.vue";
+import Swal from "sweetalert2";
+import axios from "axios";
+import global from '../global'
+
 export default {
   name: "Config",
   components: {
@@ -140,7 +142,55 @@ export default {
   },
   mounted() {
     auth();
-    this.user = JSON.parse(localStorage.getItem('user'));
+    this.getUser();
   },
+  methods: {
+    updateUser(){
+          
+          const form = new FormData();
+            form.append('name', this.user.name);
+            form.append('surname', this.user.surname);
+            form.append('username', this.user.username);
+            form.append('description', this.user.description);
+          
+             const token = localStorage.getItem('token');
+
+             let headers = {
+              'Content-Type': 'multipart/form-data',
+              'Authorization' : token
+             }
+              axios.post(global.url+'api/update',form,{headers: headers}).
+                then(res => {
+                    console.log(res)
+                if(res.data.code == 200){
+                    Swal.fire({
+                            icon: 'success',
+                            title: 'Successfully UPDATED',
+                            })
+                  localStorage.setItem('user', JSON.stringify(res.data.user));
+                  this.$router.push('/profile');
+                }
+                else if(res.data.code == 400){
+                    console.log(res);
+                    Swal.fire({
+                            icon: 'error',
+                            title: 'Update User Failed',
+                            })     
+                    }
+                }).
+                catch(error => {
+                    console.log(error);
+                    Swal.fire({
+                            icon: 'error',
+                            title: 'Update User Failed',
+                            text: error.response.data.message,
+                    })  
+                }); 
+          
+    },
+    getUser(){
+      this.user = JSON.parse(localStorage.getItem('user'));
+    }
+  }
 };
 </script>
