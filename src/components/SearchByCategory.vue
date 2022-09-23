@@ -32,7 +32,9 @@ export default {
   name: 'name',
   props: ['categories'],
   data() {
-
+    return{
+      
+    }
   },
   methods: {
     searchCategory() {

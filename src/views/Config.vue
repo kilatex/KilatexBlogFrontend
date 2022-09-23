@@ -21,24 +21,24 @@
                       </div>
                       <div class="col-md-11 textaera-box">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" v-model="user.name" id="floatingInput"
-                            placeholder="Post TItle" />
-                          <label for="floatingInput">Name</label>
+                          <input type="text" class="form-control" v-model="user.name" id="name"
+                            placeholder="Name" />
+                          <label for="name">Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" v-model="user.surname" id="floatingInput"
-                            placeholder="Post TItle" />
-                          <label for="floatingInput">Surname</label>
+                          <input type="text" class="form-control" v-model="user.surname" id="surname"
+                            placeholder="Surname" />
+                          <label for="surname">Surname</label>
                         </div>
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" v-model="user.username" id="floatingInput"
-                            placeholder="Post TItle" />
-                          <label for="floatingInput">Username</label>
+                          <input type="text" class="form-control" v-model="user.username" id="username"
+                            placeholder="Username" />
+                          <label for="username">Username</label>
                         </div>
                         <div class="form-floating">
                           <textarea class="form-control" v-model="user.description" placeholder="Leave a comment here"
-                            id="floatingTextarea2" style="height: 100px"></textarea>
-                          <label for="floatingTextarea2">Description</label>
+                            id="description" style="height: 100px"></textarea>
+                          <label for="description">Description</label>
                         </div>
                       </div>
                     </div>
@@ -84,13 +84,13 @@
                   <label for="passwordOld">Old Password</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="passwordNew" placeholder="passwordNew" />
+                  <input type="password" class="form-control" id="passwordNew" placeholder="New Password" />
                   <label for="passwordNew">New Password</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="passwordNew" placeholder="passwordNew" />
-                  <label for="passwordNew">Confirm New Password</label>
+                  <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirm New Password" />
+                  <label for="passwordConfirm">Confirm New Password</label>
                 </div>
 
                 <button type="submit" class="btn btn-success  mt-2">

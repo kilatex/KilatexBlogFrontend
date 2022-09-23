@@ -14,7 +14,7 @@
         </div>
         <h4 class="text-center text-primary fw-bold">Kilatex Blog</h4>
         <h6>Recent posts about</h6>
-        <ul>
+        <ul v-if="categories && categories.length >=1">
           <li v-for="category in categories.slice(0,5)" :key="category.id">
             <router-link :to="{name: 'PostsByCategory'  ,params: {category: category.name}}">{{category.name}}
             </router-link>
@@ -124,7 +124,6 @@ export default {
       axios.get(this.url + 'api/latest-users', { headers: this.headers }).
         then(res => {
           this.users = res.data.users;
-          console.log(this.users);
         }).
         catch(err => {
           console.log(err);
