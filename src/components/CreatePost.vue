@@ -4,7 +4,6 @@
     
             <div class="row">
             <div class="avatar-form col-md-1">
-
               <img src="../assets/img/profile-default.png" alt="Avatar Profile">
             </div>
             <div class="col-md-11 textaera-box">
@@ -23,7 +22,7 @@
         
             <div class="my-2">
               <label for="file" class="btn btn-success btn-post">Add File</label>
-              <input type="file" id="file" ref="file" name="file0" @change="fileChange()">
+              <input class="d-none" type="file" id="file" ref="file" name="file0" @change="fileChange()">
             </div>
             <div>
               <select class="form-select"  v-model="post.category" aria-label="Default select example">
@@ -107,3 +106,4 @@ export default {
     }
 }
 </script>
+

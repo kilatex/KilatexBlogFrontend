@@ -1,6 +1,6 @@
 <template>
   <div id="body-pd">
-    <header class="header bg-primary" id="header">
+    <header class="header bg-navbar" id="header">
       <div class="header_toggle ">
         <div>
           <i class="fas fa-bars text-white header-toggle" @click.prevent="toggle"  id="header-toggle"></i>
@@ -25,7 +25,7 @@
           </router-link>
       </div>
     </header>
-    <div class="l-navbar bg-primary" id="nav-bar">
+    <div class="l-navbar bg-navbar " id="nav-bar">
       <nav class="nav">
         <div>
           <router-link :to="{name: 'Home'}" class="nav_logo">
@@ -168,7 +168,7 @@ export default {
   --nav-width: 68px;
   --first-color: #4723d9;
   --first-color-light: #afa5d9;
-  --white-color: #f7f6fb;
+  --white-color: #e1dfe7;
   --body-font: "Nunito", sans-serif;
   --normal-font-size: 1rem;
   --z-fixed: 100;
@@ -268,8 +268,12 @@ a {
   transition: 0.3s;
 }
 
-.nav_link:hover {
+.nav_link {
   color: var(--white-color);
+}
+
+.nav_link:hover {
+  color: var(--first-color-light);
 }
 
 .nav_icon {
@@ -296,7 +300,9 @@ a {
   height: 32px;
   background-color: var(--white-color);
 }
-
+.bg-navbar{
+  background-color: #1a1e33;
+}
 .height-100 {
   height: 100vh;
 }
