@@ -1,6 +1,6 @@
 <template>  
 <div>
-    <div class="" v-if="posts && posts.length >= 1" >
+    <div class="posts-container" v-if="posts && posts.length >= 1" >
       <div class="posts" >
         <div class=" post-box bg-white" v-for="post in posts" :key="post.id" >
           <div class="post-header p-2 ">
@@ -86,6 +86,8 @@
 .posts-none{
   max-width: 1050px;
 }
+
+
 </style>
 
 

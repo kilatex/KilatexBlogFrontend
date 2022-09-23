@@ -103,6 +103,11 @@ export default {
 
 
 
+@media screen and (max-width: 1030px) {
+  .articles{
+    width: 80%;
+  }
+}
 @media screen and (max-width: 768px) {
   .avatar-form img{
     display: none;
@@ -113,11 +118,16 @@ export default {
   }
  
   .container-box{
-    width: 97%;    
+    width: 100%;    
     padding-left: 3vh;
-    
   }
 
  
+}
+@media screen and (max-width: 440px) {
+  .articles{
+    width: 95%;
+    margin-left: -20px;
+  }
 }
 </style>
