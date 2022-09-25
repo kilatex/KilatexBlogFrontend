@@ -120,9 +120,9 @@ export default {
   methods: {
     async getUsers() {
       let headers = {
-        'Authorization': localStorage.getItem('token')
+        'Authorization': 'bearer '+localStorage.getItem('token')
       }
-      axios.get(this.url + 'api/users?page=' + this.page, { headers: headers })
+      axios.get(this.url + '/user/all?page=' + this.page, { headers: headers })
         .then(response => {
 
           if (response.data.users.data.length) {
@@ -140,3 +140,4 @@ export default {
   }
 };
 </script>
+

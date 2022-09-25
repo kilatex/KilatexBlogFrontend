@@ -151,17 +151,14 @@ export default {
             form.append('name', this.user.name);
             form.append('surname', this.user.surname);
             form.append('username', this.user.username);
-            form.append('description', this.user.description);
-          
+            form.append('description', this.user.description); 
              const token = localStorage.getItem('token');
-
              let headers = {
               'Content-Type': 'multipart/form-data',
               'Authorization' : token
              }
-              axios.post(global.url+'api/update',form,{headers: headers}).
+            axios.post(global.url+'api/update',form,{headers: headers}).
                 then(res => {
-                    console.log(res)
                 if(res.data.code == 200){
                     Swal.fire({
                             icon: 'success',

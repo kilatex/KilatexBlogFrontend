@@ -57,7 +57,7 @@ export default {
       this.post.image = this.$refs.file.files[0];
     },
     getCategories() {
-      axios.get(this.url + 'api/category')
+      axios.get(this.url + '/category')
         .then(response => {
           if (response.status == 200) {
             this.categories = response.data;
@@ -80,9 +80,9 @@ export default {
       const token = localStorage.getItem('token');
       let headers = {
         'Content-Type': 'multipart/form-data',
-        'Authorization': token
+        'Authorization': 'bearer '+token
       }
-      axios.post(this.url + 'api/post', formData, { headers: headers })
+      axios.post(this.url + '/post', formData, { headers: headers })
         .then(() => {
           Swal.fire(
             'Good job!',

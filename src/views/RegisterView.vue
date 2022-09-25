@@ -80,9 +80,8 @@ export default {
     },
     methods: {
         save() {
-            let json = JSON.stringify(this.user);
-            let params = 'json=' + json;
-            axios.post(this.url + 'api/register', params)
+            
+            axios.post(this.url + 'auth/register', this.user)
                 .then(() => {
                     this.$router.push('/login');
                 })

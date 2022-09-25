@@ -101,7 +101,7 @@ export default {
       url: global.url,
       user: JSON.parse(localStorage.getItem('user')),
       headers: {
-        'Authorization': localStorage.getItem('token')
+        'Authorization': 'bearer '+localStorage.getItem('token')
       },
       users: []
     }
@@ -112,7 +112,7 @@ export default {
   },
   methods: {
     getCategories() {
-      axios.get(this.url + 'api/category').
+      axios.get(this.url + '/category').
         then(response => {
           this.categories = response.data;
         }).
@@ -121,7 +121,7 @@ export default {
         })
     },
     getLatestUsers() {
-      axios.get(this.url + 'api/latest-users', { headers: this.headers }).
+      axios.get(this.url + '/user/latest', { headers: this.headers }).
         then(res => {
           this.users = res.data.users;
         }).

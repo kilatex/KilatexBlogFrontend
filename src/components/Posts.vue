@@ -35,7 +35,7 @@
               <img src="../assets/img/2.jpg" class="card-img-top" alt="...">
             </div>
             <div v-if="post.image">
-              <img :src="url+'api/post/image/'+post.image" class="card-img-top" alt="...">
+              <img :src="url+'/post/image/'+post.image" class="card-img-top" alt="...">
             </div>
           </div>
           <div class="card-body">
@@ -113,10 +113,10 @@ export default {
       switch (this.postsType) {
         case "PostsByUser":
           this.band = true
-          this.urlPosts = this.url + 'api/post/user/' + this.$route.params.id + '?page=';
+          this.urlPosts = this.url + '/post/user/' + this.$route.params.id + '?page=';
           break;
         case "PostsHome":
-          this.urlPosts = this.url + 'api/post?page=';
+          this.urlPosts = this.url + '/post?page=';
           break;
         case "PostsByCategory":
           console.log('PostsByCategory'); break;
