@@ -4,7 +4,7 @@
     <div class="sidebar bg-white ">
       <div class="sidebar-box">
         <div class="profile">
-          <span v-if="user.image != null">
+          <span v-if="user && user.image">
             <img src="../assets/img/profile1.png" class="avatar-sidebar" alt="Avatar Profile">
           </span>
           <span v-else>
@@ -90,6 +90,9 @@
 import SearchByCategory from "./SearchByCategory.vue";
 import axios from 'axios';
 import global from '../global'
+import {isAuth} from '../middlewares/auth.js';
+
+
 export default {
   name: "Sidebar",
   components: {
@@ -107,6 +110,7 @@ export default {
     }
   },
   mounted() {
+    isAuth();
     this.getCategories();
     this.getLatestUsers();
   },

@@ -1,4 +1,4 @@
-<template class="">
+<template>
     <div class="bg-light">
         <Navbar> </Navbar>
         <div class="container-box">
@@ -231,7 +231,7 @@
 
 <script>
 import Navbar from '../components/Navbar.vue';
-import auth from '../middlewares/auth';
+import {isAuth} from "../middlewares/auth";
 import moment from 'moment';
 
 export default {
@@ -246,7 +246,7 @@ export default {
         }
     },
     mounted() {
-        auth();
+        isAuth();
         this.user = JSON.parse(localStorage.getItem('user'));
     },
 }

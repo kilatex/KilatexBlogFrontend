@@ -123,7 +123,7 @@
 
 <script>
 import Sidebar from "../components/Sidebar.vue";
-import auth from "../middlewares/auth";
+import {isAuth} from "../middlewares/auth";
 import Navbar from "../components/Navbar.vue";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -141,7 +141,7 @@ export default {
     }
   },
   mounted() {
-    auth();
+    isAuth();
     this.getUser();
   },
   methods: {

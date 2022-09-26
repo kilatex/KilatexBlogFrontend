@@ -11,7 +11,7 @@
           <h5 class="mb-4 text-center">Confirm Sign Out </h5>
           <div class="d-flex justify-content-center">
             <button class="btn btn-warning mx-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-            <button class="btn btn-danger mx-2">Sign Out</button>
+            <button @click="logout()" data-bs-dismiss="modal" aria-label="Close" class="btn btn-danger mx-2">Sign Out</button>
           </div>
         </div>
       </div>
@@ -20,7 +20,30 @@
 </template>
 
 <script>
+import axios from 'axios'
+import global from '../global'
 export default {
-  name: 'Logout'
+  name: 'Logout',
+  data(){
+    return {
+      token : localStorage.getItem('token')
+    }
+  },
+  methods: {
+    logout() {
+      const form = new FormData();
+
+
+     form.append('token', this.token);
+
+      axios.post(global.url+'/auth/logout',form).then(
+        () => {
+          localStorage.removeItem('token')
+          localStorage.removeItem('user')
+          this.$router.push({ name: 'login' })
+        }
+      )
+    }
+  }
 }
 </script>

@@ -94,7 +94,7 @@
 <script>
 import Sidebar from '../components/Sidebar.vue';
 import Navbar from '../components/Navbar.vue';
-import auth from '../middlewares/auth';
+import {isAuth} from '../middlewares/auth';
 import axios from 'axios';
 import InfiniteScroll from "infinite-loading-vue3";
 import global from '../global'
@@ -114,7 +114,7 @@ export default {
     }
   },
   mounted() {
-    auth();
+    isAuth();
     this.getUsers();
   },
   methods: {
@@ -124,7 +124,6 @@ export default {
       }
       axios.get(this.url + '/user/all?page=' + this.page, { headers: headers })
         .then(response => {
-
           if (response.data.users.data.length) {
             this.users.push(...response.data.users.data);
             this.page++;

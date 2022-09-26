@@ -16,7 +16,7 @@
         </div>
       <div class="header_img">
           <router-link :to="{ name: 'MyProfile'}">
-            <span v-if="user.image != null">
+            <span v-if="user && user.image">
               <img src="../assets/img/profile1.png" alt="Avatar Profile">
             </span>
             <span v-else>
@@ -93,13 +93,11 @@ export default {
      data(){
       return{
         search: '',
-        user: JSON.parse(localStorage.getItem('user'))
+        user: JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : null
       }
     }, 
   mounted() {
-     
-
-        // MENU TOGGLE
+      // MENU TOGGLE
         const showNavbar = (toggleId, navId, bodyId, headerId) => {
         const toggle = document.getElementById(toggleId),
           nav = document.getElementById(navId),

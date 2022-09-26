@@ -1,10 +1,37 @@
 const url = 'http://localhost:8080/';
-function isAuth ()  {
+export const  isAuth =  ()  =>  {
     const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    if(!token || !user ||  typeof token !== 'string' || typeof user !== 'string'){
+    if(!token){
         window.location.href = url+"login";
     }
 }
 
-export default isAuth;
+
+export const  isNotAuth =  () =>   {
+
+  
+
+    const token = localStorage.getItem('token');
+    let headers = {
+  
+        'Authorization' : 'Bearer '+token
+      }
+  
+  
+      fetch('http://localhost:8000/api/auth/isauth', {
+        method: 'GET', // or 'PUT'
+        headers: headers
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if(data.error != "400"){
+            window.location.href = url+"home";
+          }
+        })
+       
+   
+  
+  }
+  
+  
+  

@@ -1,5 +1,5 @@
 <template>
-<div class="bg-light">
+<div v-if="user" class="bg-light">
   <Navbar> </Navbar>
   <div class="container-box d-flex  justify-content-around">
     <div class="articles">
@@ -18,7 +18,7 @@ import Navbar from '../components/Navbar.vue';
 import Sidebar from '../components/Sidebar.vue';
 import Posts from '../components/Posts.vue';
 import CreatePost from '../components/CreatePost.vue';
-import auth from '../middlewares/auth';
+import {isAuth} from '../middlewares/auth.js';
 export default {
   name: 'Home',
   components: {
@@ -27,8 +27,13 @@ export default {
     Posts,
     CreatePost
   },
+  data(){
+    return {
+      user: JSON.parse(localStorage.getItem('user'))
+    }
+  },
   mounted(){
-    auth();
+    isAuth();
   }
 }
 </script>
