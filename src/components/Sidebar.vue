@@ -1,5 +1,4 @@
 <template>
-
   <div class="sidebar-container ">
     <div class="sidebar bg-white ">
       <div class="sidebar-box">

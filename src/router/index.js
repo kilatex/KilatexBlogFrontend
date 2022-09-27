@@ -7,6 +7,7 @@ import Config from '../views/Config.vue';
 import LatestUsers from '../views/LatestUsers.vue';
 import Profile from '../views/Profile.vue';
 import PostsByCategory from '../views/PostsByCategory'
+import UsersSearched from '../views/UsersSearched'
 
 const routes = [
   {
@@ -56,7 +57,12 @@ const routes = [
     path:'/category/:category',
     name: 'PostsByCategory',
     component: PostsByCategory
-  }
+  },
+  {
+    path:'/user/search/:text',
+    name: 'UsersSearched',
+    component: UsersSearched
+  },
 ]
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

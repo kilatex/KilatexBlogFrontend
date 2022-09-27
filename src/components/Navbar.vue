@@ -1,12 +1,9 @@
 <template>
   <div id="body-pd">
-
-    <Header/>
-    <LateralMenu/>
-    <!--Container Main start-->
-      <ModalNewPost></ModalNewPost>
-      <Logout></Logout>
-
+    <Header />
+    <LateralMenu />
+    <ModalNewPost></ModalNewPost>    <!--Container Main start-->
+    <Logout></Logout>
   </div>
 </template>
 
@@ -17,56 +14,47 @@ import Header from './Header.vue';
 import LateralMenu from './LateralMenu.vue';
 export default {
   name: "Navbar",
-  components:{
+  components: {
     ModalNewPost,
     Logout,
     Header,
     LateralMenu
   },
-     data(){
-      return{
-        search: '',
-        user: JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : null
-      }
-    }, 
+  data() {
+    return {
+      search: '',
+      user: JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : null
+    }
+  },
   mounted() {
-      // MENU TOGGLE
-        const showNavbar = (toggleId, navId, bodyId, headerId) => {
-        const toggle = document.getElementById(toggleId),
-          nav = document.getElementById(navId),
-          bodypd = document.getElementById(bodyId),
-          headerpd = document.getElementById(headerId);
-
-        // Validate that all variables exist
-        if (toggle && nav && bodypd && headerpd) {
-          toggle.addEventListener("click", () => {
-            // show navbar
-            nav.classList.toggle("show");
-            // change icon
-            toggle.classList.toggle("bx-x");
-            // add padding to body
-            bodypd.classList.toggle("body-pd");
-            // add padding to header
-            headerpd.classList.toggle("body-pd");
-
-            if(window.innerWidth <= 810){
-             const screen = document.querySelector('#search-bar');
-             screen.classList.toggle('active-search');
-              
-            }
-          });
-        }
-      };
-      showNavbar("header-toggle", "nav-bar", "body-pd", "header");
-
-      
+    // MENU TOGGLE
+    const showNavbar = (toggleId, navId, bodyId, headerId) => {
+      const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId),
+        bodypd = document.getElementById(bodyId),
+        headerpd = document.getElementById(headerId);
+      // Validate that all variables exist
+      if (toggle && nav && bodypd && headerpd) {
+        toggle.addEventListener("click", () => {
+          // show navbar
+          nav.classList.toggle("show");
+          // change icon
+          toggle.classList.toggle("bx-x");
+          // add padding to body
+          bodypd.classList.toggle("body-pd");
+          // add padding to header
+          headerpd.classList.toggle("body-pd");
+          if (window.innerWidth <= 810) {
+            const screen = document.querySelector('#search-bar');
+            screen.classList.toggle('active-search');
+          }
+        });
+      }
+    };
+    showNavbar("header-toggle", "nav-bar", "body-pd", "header");
     document.addEventListener("DOMContentLoaded", function () {
-     
-      /*===== LINK ACTIVE =====*/
+     /*===== LINK ACTIVE =====*/
       const linkColor = document.querySelectorAll(".nav_link");
-     
-    
-
       function colorLink() {
         if (linkColor) {
           linkColor.forEach((l) => l.classList.remove("active"));
@@ -78,22 +66,20 @@ export default {
       // Your code to run since DOM is loaded and ready
     });
   },
-  methods:{
-    getPostsBySearch(){
-        const search = this.search;
-        return search;
+  methods: {
+    getPostsBySearch() {
+      const search = this.search;
+      return search;
     }
   }
 };
 </script>
 
-
-
 <style>
-
-.active-search{
+.active-search {
   display: none;
 }
+
 :root {
   --header-height: 3rem;
   --nav-width: 68px;
@@ -134,7 +120,8 @@ a {
   font-size: 1.5rem;
   cursor: pointer;
 }
-.search-container{
+
+.search-container {
   width: 60%;
 
 }
@@ -231,43 +218,50 @@ a {
   height: 32px;
   background-color: var(--white-color);
 }
-.bg-navbar{
+
+.bg-navbar {
   background-color: #1a1e33;
 }
+
 .height-100 {
   height: 100vh;
 }
+
 .header {
-    height: calc(var(--header-height) + 1rem);
-    padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
-  }
-  .show {
-    width: calc(var(--nav-width) + 156px);
-  }
-  .l-navbar {
-    left: 0;
-    padding: 1rem 1rem 0 0;
-  }
-   .body-pd {
-    padding-left: calc(var(--nav-width) + 188px);
-  }
- .header_img {
-    width: 40px;
-    height: 40px;
-  }
+  height: calc(var(--header-height) + 1rem);
+  padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+}
 
-  .header_img img {
-    width: 45px;
-  }
+.show {
+  width: calc(var(--nav-width) + 156px);
+}
 
-  .my_posts_icon{
-      position: relative;
-      left: 3px;
-  }
+.l-navbar {
+  left: 0;
+  padding: 1rem 1rem 0 0;
+}
+
+.body-pd {
+  padding-left: calc(var(--nav-width) + 188px);
+}
+
+.header_img {
+  width: 40px;
+  height: 40px;
+}
+
+.header_img img {
+  width: 45px;
+}
+
+.my_posts_icon {
+  position: relative;
+  left: 3px;
+}
 
 @media screen and (max-width: 768px) {
-  
-    .l-navbar {
+
+  .l-navbar {
     position: fixed;
     top: 0;
     width: 0px;
@@ -275,29 +269,28 @@ a {
     padding: 0.5rem 1rem 0 0;
     transition: 0.5s;
     z-index: var(--z-fixed);
-    }
-   
-    .header .header_toggle{
-        position: relative;
-    }
+  }
+
+  .header .header_toggle {
+    position: relative;
+  }
 
 
   .show {
     width: calc(var(--nav-width) + 156px);
   }
-  
-    .body-pd {
+
+  .body-pd {
     padding-left: calc(var(--nav-width) + 170px) !important;
   }
 
- .header {
-  padding: 0 20px;
-    }
-    .search-container{
-  width: 80%;
+  .header {
+    padding: 0 20px;
+  }
 
+  .search-container {
+    width: 80%;
+
+  }
 }
-}
-
-
 </style>

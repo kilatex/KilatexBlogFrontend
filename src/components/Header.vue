@@ -3,12 +3,9 @@
       <div class="header_toggle ">
         <div>
           <i class="fas fa-bars text-white header-toggle" @click.prevent="toggle"  id="header-toggle"></i>
-        </div>
-        
+        </div> 
       </div>
-
       <SearchBar/>
-
       <div class="header_img">
           <router-link :to="{ name: 'MyProfile'}">
             <span v-if="user && user.image">
