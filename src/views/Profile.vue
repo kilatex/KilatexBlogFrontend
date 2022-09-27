@@ -129,10 +129,10 @@ export default {
     },
     mounted(){
       let headers = {
-              'Authorization' : localStorage.getItem('token')
+              'Authorization' : 'Bearer '+localStorage.getItem('token')
       }
       this.id_user = this.$route.params.id;
-      const url = this.url+'api/get-user/'+this.id_user;
+      const url = this.url+'/user/get/'+this.id_user;
 
       axios.get(url,{headers:headers}).
             then(res => {
